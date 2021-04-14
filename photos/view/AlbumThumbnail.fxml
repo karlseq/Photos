@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#click" prefHeight="196.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controllers.AlbumThumbnailController">
+   <children>
+      <VBox alignment="CENTER" layoutX="63.0" layoutY="8.0" prefHeight="196.0" prefWidth="225.0" stylesheets="@../styles/styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="168.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" styleClass="profilePic">
+               <image>
+                  <Image url="@../../../blank.jpg" />
+               </image>
+            </ImageView>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="225.0">
+               <children>
+                  <Label fx:id="albumLabel" alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="149.0" text="Hawaii">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="28.0" prefWidth="83.0">
+                     <children>
+                        <VBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Label fx:id="photoCount" text="0" />
+                              <Label fx:id="dateRange">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,45 @@
+.right-bar{
+	-fx-background-color: #D3D3D3;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+	
+}
+.search-box{
+	-fx-background-color: #FFFFFF;
+	-fx-background-radius: 100;
+}
+
+.transparent{
+	-fx-background-color: rgba(0,0,0,0);
+}
+
+.search-button{
+	-fx-background-color: #828282;
+	-fx-background-radius: 30;
+}
+
+.leftButton{
+	-fx-background-color: transparent;
+}
+
+.leftButton:hover{
+	-fx-background-color: #828282;
+    -fx-scale-y: 1.1;
+}
+
+.m-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.m-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.profilePic{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.circle{
+	-fx-background-color: #828282;
+	-fx-border-style: none;
+    -fx-border-width: 0;
+}
