@@ -2,7 +2,6 @@ package photos.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -14,13 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import photos.main.Admin;
-import photos.main.Alerts;
 import photos.main.Photos;
 import photos.model.Album;
 import photos.model.Photo;
@@ -117,7 +114,7 @@ public class PhotoController implements Initializable, Screen {
 			root = FXMLLoader.load(getClass().getResource("/photos/view/Album.fxml"));
 			primaryStage.setTitle(a.getAlbumName());
 		}
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
 	}
 	
@@ -161,7 +158,7 @@ public class PhotoController implements Initializable, Screen {
 		tagController = loader.getController();
 		tagController.start(primaryStage);
 		primaryStage.setTitle(Admin.getCurrentUser().getUserName() + "'s Main Page");
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.centerOnScreen();
 		primaryStage.show();
 	}

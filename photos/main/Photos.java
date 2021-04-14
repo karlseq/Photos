@@ -2,14 +2,8 @@ package photos.main;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,10 +23,11 @@ public class Photos extends Application {
 	public void start(Stage primaryStage)
 	throws Exception {
 
-		File persistence = new File("./dat/users.dat");
+		File persistence = new File("./dat/users3.dat");
 		if (persistence.length() != 0) {
 			Admin.loadUsers();
 		}
+
 		
 		if(!Admin.userList.contains(new User("stock"))) {
 			User stock = new User("stock");

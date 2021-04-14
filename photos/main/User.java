@@ -3,10 +3,10 @@ package photos.main;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import javafx.scene.image.Image;
 import photos.model.Album;
 import photos.model.Photo;
 
@@ -46,6 +46,10 @@ public class User implements Serializable{
 	 */
 	public HashSet<String> tagTypes = new HashSet<String>();
 	
+	/**
+	 * HashSet of Photos
+	 */
+	public HashMap<Photo, Photo> userPhotos;
 	
 	/**
 	 * Creates a user by taking a name for the user
@@ -55,7 +59,9 @@ public class User implements Serializable{
 		this.username = name;
 		this.albums = new ArrayList<>();
 		this.profilePic = new Photo(blankImage,new Date()); //date is arbitrary for profile pic
+		this.userPhotos = new HashMap<>();
 	}
+	
 	
 	/**
 	 * Used for printing the user
@@ -135,6 +141,8 @@ public class User implements Serializable{
 	public List<Album> getAlbums(){
 		return this.albums;
 	}
+
+
 	
 
 

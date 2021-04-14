@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import photos.main.User;
 
 import java.time.*;
 
@@ -36,6 +35,7 @@ public class Photo implements Serializable {
 	 */
 	public HashMap<String,ArrayList<Tag>> tags = new HashMap<String,ArrayList<Tag>>();
 	public HashSet<String> tagTypes = new HashSet<String>();
+	
 	
 	/**
 	 * Caption of the photo
@@ -90,17 +90,35 @@ public class Photo implements Serializable {
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
-	
-	public boolean equals(Object obj) {
-		if (obj==null || this.getClass()!=obj.getClass()) {
-			return false;
-		}
-		Photo newPhoto = (Photo)obj;
-		System.out.println("newPHoto: " + newPhoto.getImgSrc());
-		System.out.println(this.imgSrc);
-		System.out.println(this.imgSrc.equals(newPhoto.imgSrc));
-		return this.imgSrc.equals(newPhoto.imgSrc);
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((imgSrc == null) ? 0 : imgSrc.hashCode());
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Photo other = (Photo) obj;
+		if (imgSrc == null) {
+			if (other.imgSrc != null)
+				return false;
+		} else if (!imgSrc.equals(other.imgSrc))
+			return false;
+		return true;
+	}
+	
+
+	
+	
 	
 	
 }

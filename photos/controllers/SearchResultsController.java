@@ -70,10 +70,13 @@ public class SearchResultsController implements Initializable, Screen {
     private User u = Admin.getCurrentUser();
     private Album hits;
     private List<Photo> photos;
+	@SuppressWarnings("unused")
 	private StringProperty count;
+	@SuppressWarnings("unused")
 	private int ucol = 0, urow = 1;
 	private PhotoListener myListener;
 	private TestListener testListener;
+	@SuppressWarnings("unused")
 	private Photo selectedPhoto;
 	private boolean photoSelected;
 	private ImageView selectedImage;
@@ -89,7 +92,7 @@ public class SearchResultsController implements Initializable, Screen {
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/Photo.fxml"));
 		primaryStage.setTitle(Admin.getCurrentUser() + "'s Main Page");
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
     }
     
@@ -198,7 +201,7 @@ public class SearchResultsController implements Initializable, Screen {
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/UserMainPage.fxml"));
 		primaryStage.setTitle(Admin.getCurrentUser()+ "'s Main Page");
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
 	}
 

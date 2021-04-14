@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -110,7 +109,7 @@ public class UserMainPageController implements Initializable, Screen{
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/Album.fxml"));
 		primaryStage.setTitle(album.getAlbumName());
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
     }
     
@@ -120,7 +119,7 @@ public class UserMainPageController implements Initializable, Screen{
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/SearchResults.fxml"));
 		primaryStage.setTitle(album.getAlbumName());
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
     }
     

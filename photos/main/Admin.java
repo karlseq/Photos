@@ -17,7 +17,7 @@ public class Admin {
 	public static ArrayList<User> userList = new ArrayList<User>();
 	private static User currentUser;
 	public static final String storeDir = "dat";
-	public static final String storeFile = "users.dat";
+	public static final String storeFile = "users3.dat";
 
 	public static ArrayList<User> getUserList() {
 		return userList;

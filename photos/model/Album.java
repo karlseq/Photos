@@ -3,7 +3,6 @@ package photos.model;
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -19,6 +18,7 @@ public class Album implements Serializable {
 	public static final String blankTemplate = "./data/blank.jpg";
 
 	private String albumName;
+	@SuppressWarnings("unused")
 	private String dateRange;
 	private List<Photo> photos;
 	@SuppressWarnings("unused")

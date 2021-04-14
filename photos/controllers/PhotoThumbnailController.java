@@ -5,8 +5,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import photos.main.Admin;
-import photos.model.Album;
 import photos.model.Photo;
 import photos.model.PhotoListener;
 import photos.model.TestListener;

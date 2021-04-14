@@ -76,7 +76,7 @@ public class LoginController implements Initializable {
 				Stage primaryStage = Photos.pStage;
 				Parent root = FXMLLoader.load(getClass().getResource("/photos/view/UserMainPage.fxml"));
 				primaryStage.setTitle(Admin.getCurrentUser().getUserName() + "'s Main Page");
-				primaryStage.setScene(new Scene(root, 1315, 810));
+				primaryStage.setScene(new Scene(root, 1315, 750));
 				primaryStage.centerOnScreen();
 				primaryStage.show();
 			}

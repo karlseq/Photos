@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Function;
-import java.util.Calendar;
 import java.util.Date;
 
 import photos.main.Admin;
@@ -199,7 +198,7 @@ public class AlbumController implements Initializable, Screen{
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/Photo.fxml"));
 		PhotoController.a = album;
 		primaryStage.setTitle(generateDate(photo.date));
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
     }
     
@@ -319,14 +318,20 @@ public class AlbumController implements Initializable, Screen{
     	List<File> list = allowUserToSelect(); //list of files
         if(list == null) return;
         List<Photo> newPhotos = addFileToPhotos(list, f -> {return new Photo(f.getPath(),new Date(f.lastModified()));}); //each file, extract path, make an image path
-        newPhotos.forEach((p) -> {if(this.photos.contains(p)) {
+        newPhotos.forEach((p) -> {
+        	if(this.photos.contains(p)) {
         		Alerts.duplicateError("Image");
         		return;
         	}
+        	else if(Admin.getCurrentUser().userPhotos.get(p) != null) {
+        		p = Admin.getCurrentUser().userPhotos.get(p);
+        	}
 			photos.add(p);
+			Admin.getCurrentUser().userPhotos.put(p, p);
         });
+        
 		grid.getChildren().clear();
-        for(int i = 0; i< newPhotos.size(); i++) {
+        for(int i = 0; i< this.photos.size(); i++) {
         	FXMLLoader fxmlLoader = new FXMLLoader();
     		fxmlLoader.setLocation(getClass().getResource("/photos/view/PhotoThumbnail.fxml"));
     		AnchorPane anchorPane = fxmlLoader.load();
@@ -347,7 +352,7 @@ public class AlbumController implements Initializable, Screen{
 			
     		
     		PhotoThumbnailController Thumb = fxmlLoader.getController();
-    		Thumb.setData(newPhotos.get(i), myListener, testListener);
+    		Thumb.setData(this.photos.get(i), myListener, testListener);
     		
     		if(ucol == 3) {
     			ucol = 0;
@@ -402,7 +407,7 @@ public class AlbumController implements Initializable, Screen{
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/UserMainPage.fxml"));
 		primaryStage.setTitle(Admin.getCurrentUser().getUserName() + "'s Main Page");
-		primaryStage.setScene(new Scene(root, 1315, 810));
+		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.show();
 	}
 
