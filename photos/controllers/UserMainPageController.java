@@ -39,71 +39,159 @@ import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 
+/**
+ * Manages user main page when they first log in
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
+
 public class UserMainPageController implements Initializable, Screen{
 	
+	/**
+	 * Opened album
+	 */
 	public static Album openedAlbum;
+	
+	/**
+	 * Search results album
+	 */
 	public static Album searchResults;
 
-
+	/**
+	 * Profile pic
+	 */
     @FXML
     private ImageView profilePic;
     
-	@FXML
+	/**
+	 * Username
+	 */
+    @FXML
     private Label userName;
-
+    
+    /**
+     * Number of albums
+     */
     @FXML
     private Label albumCount;
 
+    /**
+     * Scroll
+     */
     @FXML
     private ScrollPane scroll;
 
+    /**
+     * Grid
+     */
     @FXML
     private GridPane grid;
     
+    /**
+     * Logs out of application
+     */
     @FXML
     private MenuItem logout;
-
+    
+    /**
+     * Quits whole application
+     */
     @FXML
     private MenuItem quit;
     
+    /**
+     * Add new album
+     */
     @FXML
     private Button add;
     
+    /**
+     * Name of new album to add
+     */
     @FXML
     private TextField albumTextField;
     
+    /**
+     * Number of albums
+     */
     @FXML
     private Label albumLabelCount;
     
+    /**
+     * ChoiceBox for all albums
+     */
     @FXML
     private ChoiceBox<Album> choiceBox;
     
+    /**
+     * ChoiceBox of albums to rename
+     */
     @FXML
     private ChoiceBox<Album> renameChoicebox;
     
+    /**
+     * New album name
+     */
     @FXML
     private TextField renameTextfield;
     
+    /**
+     * Search by tag TextField
+     */
     @FXML
     private TextField searchBox;
     
+    /**
+     * Start date for search
+     */
     @FXML
     private DatePicker fromDatePicker;
 
+    /**
+     * End date for search
+     */
     @FXML
     private DatePicker toDatePicker;
     
+    /**
+     * Circle for profile pic
+     */
     @FXML
     private Circle circle;
 
+    /**
+     * Listens for user interaction
+     */
     private MyListener myListener;
+    
+    /**
+     * Current user
+     */
     private User u;
-	private StringProperty count;
-	private StringProperty albumOrAlbums;
+	
+    /**
+     * Count
+     */
+    private StringProperty count;
+	
+    /**
+     * 1 or more albums
+     */
+    private StringProperty albumOrAlbums;
 
-	public static int ucol = 0, urow = 1;
+	/**
+	 * Coordinates
+	 */
+    public static int ucol = 0, urow = 1;
 
     
+    /**
+     * Opens album
+     * 
+     * @param album album to open
+     * @throws IOException IO error
+     */
     public void openAlbum(Album album) throws IOException {
     	openedAlbum = album;
 		Stage primaryStage = Photos.pStage;
@@ -113,8 +201,13 @@ public class UserMainPageController implements Initializable, Screen{
 		primaryStage.show();
     }
     
+    /**
+     * Takes you to search results screen
+     * 
+     * @param album search results album
+     * @throws IOException IO error
+     */
     public void openHits(Album album) throws IOException {
-    	System.out.println("in open hits");
     	searchResults = album;
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/SearchResults.fxml"));
@@ -204,7 +297,12 @@ public class UserMainPageController implements Initializable, Screen{
     }
 
 	
-
+    /**
+     * Add new album
+     * 
+     * @param e ActionEvent
+     * @throws IOException IO error
+     */
 	public void addNewAlbum(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("/photos/view/AlbumThumbnail.fxml"));
@@ -272,6 +370,11 @@ public class UserMainPageController implements Initializable, Screen{
  
 	}
 	
+	/**
+	 * Delete album
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void deleteAlbum(ActionEvent e) {
 		Album a = this.choiceBox.getValue();
 		if(a != null) {
@@ -330,6 +433,11 @@ public class UserMainPageController implements Initializable, Screen{
 		}
 	}
 	
+	/**
+	 * Rename album
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void rename(ActionEvent e) {
 		Album old = this.renameChoicebox.getValue();
 		String newName = this.renameTextfield.getText();
@@ -379,6 +487,12 @@ public class UserMainPageController implements Initializable, Screen{
 		}
 	}
 	
+	/**
+	 * Search by tag
+	 * 
+	 * @param e ActionEvent
+	 * @throws IOException IO error
+	 */
 	public void search(ActionEvent e) throws IOException {
 		String text = searchBox.getText();
 		if(text == null || text.indexOf("=") == -1) {
@@ -454,7 +568,12 @@ public class UserMainPageController implements Initializable, Screen{
 		}
 	}
 	
-	//this will eventually be an ActionEvent
+	/**
+	 * Search by date
+	 * 
+	 * @param e ActionEvent
+	 * @throws IOException IO error
+	 */
 	public void searchByDate(ActionEvent e) throws IOException {
 		
 		if(fromDatePicker.getValue() == null || toDatePicker.getValue() == null) {
@@ -484,6 +603,12 @@ public class UserMainPageController implements Initializable, Screen{
 		}
 	}
 	
+	/**
+	 * If new album is added, add its name to ChoiceBox
+	 * 
+	 * @param newName name of new album
+	 * @param newAlbum new album
+	 */
 	private void updateNameinChoiceBox(String newName, Album newAlbum) {
 		for(int i = 1; i < this.choiceBox.getItems().size(); i++) {
 			Album old = this.choiceBox.getItems().get(i); 
@@ -514,6 +639,11 @@ public class UserMainPageController implements Initializable, Screen{
 		Quit(e);
 	}
 	
+	/**
+	 * Adds profile pic to circle
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void addProfilePic(ActionEvent e) {
 		File pp = allowUserToSelect();
 		this.u.profilePic.setImgSrc(pp.getPath());
@@ -521,12 +651,22 @@ public class UserMainPageController implements Initializable, Screen{
 		circle.setFill(new ImagePattern(image));
 	}
 	
+	/**
+	 * Deletes profile pic
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void deleteProfilePic(ActionEvent e) {
 		this.u.profilePic.setImgSrc(User.blankImage);
 		Image image = new Image("file:" + u.profilePic.getImgSrc());
 		circle.setFill(new ImagePattern(image));
 	}
 	
+	/**
+	 * Allows user to select file from their file system
+	 * 
+	 * @return file user wants to import
+	 */
 	private File allowUserToSelect() {
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Select photos you would like to add");

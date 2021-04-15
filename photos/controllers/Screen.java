@@ -23,7 +23,7 @@ public interface Screen {
 	 * Goes back to previous screen
 	 * 
 	 * @param e ActionEvent
-	 * @throws IOException
+	 * @throws IOException IO error
 	 */
 	void goBack(ActionEvent e) throws IOException;
 	
@@ -34,7 +34,7 @@ public interface Screen {
 	 * Logs out of application
 	 * 
 	 * @param e ActionEvent
-	 * @throws IOException
+	 * @throws IOException IO error
 	 */
 	public default void logOut(ActionEvent e) throws IOException {
 		String header = "Are you sure you want to logout";

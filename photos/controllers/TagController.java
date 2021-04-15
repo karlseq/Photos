@@ -104,7 +104,7 @@ public class TagController implements Screen {
     /**
      * Loads ListView with appropriate tags and preset tag types ChoiceBox
      * 
-     * @param mainstage
+     * @param mainstage primary stage
      */
 	public void start(Stage mainstage) {
     	tagsList = FXCollections.observableArrayList();
@@ -155,7 +155,12 @@ public class TagController implements Screen {
 			(obs,oldVal,newVal) -> foo(newVal.intValue()));    
    }
     
-    public void foo(int i) {    	
+    /**
+     * Sets tagType TextField to appropriate tag type
+     * 
+     * @param i newVal index
+     */
+	public void foo(int i) {    	
     	if(i > 0) {
     		tagType.setText(presetTagTypes.getItems().get(i));
     	}

@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
 	 * Handles login ActionEvent
 	 * 
 	 * @param e ActionEvent triggered when login button is pressed
-	 * @throws IOException
+	 * @throws IOException IO error
 	 */
 	public void login(ActionEvent e) throws IOException {
 		String userName = usernameText.getText();
@@ -91,7 +91,7 @@ public class LoginController implements Initializable {
 	 * Calls login method
 	 * 
 	 * @param e ActionEvent
-	 * @throws IOException
+	 * @throws IOException IO error
 	 */
 	public void onEnter(ActionEvent e) throws IOException {
 		login(e);

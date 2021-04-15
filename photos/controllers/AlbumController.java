@@ -182,7 +182,7 @@ public class AlbumController implements Initializable, Screen{
      * Opens a photo
      * 
      * @param photo photo to be opened
-     * @throws IOException
+     * @throws IOException IO error
      */
     public void openPhoto(Photo photo) throws IOException {
     	if(photoSelected) {
@@ -312,7 +312,7 @@ public class AlbumController implements Initializable, Screen{
      * Adds photo to album
      * 
      * @param e ActionEvent
-     * @throws IOException
+     * @throws IOException IO error
      */
     public void add(ActionEvent e) throws IOException {
     	List<File> list = allowUserToSelect(); //list of files
@@ -444,7 +444,7 @@ public class AlbumController implements Initializable, Screen{
 	 * Deletes selected photo
 	 * 
 	 * @param e ActionEvent
-	 * @throws IOException
+	 * @throws IOException IO error
 	 */
 	public void delete(ActionEvent e) throws IOException {
 		this.album.getPhotos().remove(selectedPhoto);
@@ -503,7 +503,7 @@ public class AlbumController implements Initializable, Screen{
 	/**
 	 * Moves photo from current album to new album
 	 * 
-	 * @param e
+	 * @param e ActionEvent
 	 */
 	public void move(ActionEvent e) {
 		copyOrMove(e, true);

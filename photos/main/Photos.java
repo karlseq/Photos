@@ -12,18 +12,26 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import photos.model.Album;
 import photos.model.Photo;
-//import photos.view.LoginController;
 
+/**
+ * Main application
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
 
 public class Photos extends Application {
 	
+	/**
+	 * Primary stage
+	 */
 	public static Stage pStage;
 	
 	@Override
 	public void start(Stage primaryStage)
 	throws Exception {
 
-		File persistence = new File("./dat/users3.dat");
+		File persistence = new File("./dat/users2.dat");
 		if (persistence.length() != 0) {
 			Admin.loadUsers();
 		}
@@ -62,6 +70,11 @@ public class Photos extends Application {
 		}
 	}
 	
+	/**
+	 * Adds stock photos to stock album
+	 * 
+	 * @param a stock album
+	 */
 	public static void addStockPhotos(Album a) {
 
 		File f = new File("./data/stock1.jpg");

@@ -34,6 +34,8 @@ public class Photo implements Serializable {
 	 * HashMap of tags
 	 */
 	public HashMap<String,ArrayList<Tag>> tags = new HashMap<String,ArrayList<Tag>>();
+	
+	
 	public HashSet<String> tagTypes = new HashSet<String>();
 	
 	
@@ -85,7 +87,7 @@ public class Photo implements Serializable {
 	/**
 	 * Sets the caption of the photo
 	 * 
-	 * @param caption
+	 * @param caption caption of photo
 	 */
 	public void setCaption(String caption) {
 		this.caption = caption;

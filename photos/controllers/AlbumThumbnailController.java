@@ -7,31 +7,67 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import photos.model.*;
 
+/**
+ * Sets thumbnail of album
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
+
 public class AlbumThumbnailController {
 
-    @FXML
+    /**
+     * Displayed image
+     */
+	@FXML
     private ImageView image;
 
-    @FXML
+    /**
+     * Album label
+     */
+	@FXML
     private Label albumLabel;
 
-    @FXML
+    /**
+     * Number of photos in album
+     */
+	@FXML
     private Label photoCount;
 
-    @FXML
+    /**
+     * Date range of photos in album
+     */
+	@FXML
     private Label dateRange;
     
-    @FXML
+    /**
+     * Listens for when user clicks on album
+     * 
+     * @param actionEvent ActionEvent
+     */
+	@FXML
     private void click(MouseEvent actionEvent) {
     	myListener.onClickListener(album);
     }
     
-    private Album album;
-    private MyListener myListener;
+    /**
+     * Album you're currently looking at
+     */
+	private Album album;
+    
+	/**
+	 * Listens for user interaction on album
+	 */
+	private MyListener myListener;
 
     
-    
-    public void setData(Album at, MyListener myListener) {
+    /**
+     * Sets thumbnail of album, along with date range and photo count
+     * 
+     * @param at current album
+     * @param myListener listens for user interaction
+     */
+	public void setData(Album at, MyListener myListener) {
     	this.album = at;
     	this.myListener = myListener;
     	albumLabel.setText(album.getAlbumName());

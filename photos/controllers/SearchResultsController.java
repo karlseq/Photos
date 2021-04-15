@@ -36,51 +36,133 @@ import photos.model.Photo;
 import photos.model.PhotoListener;
 import photos.model.TestListener;
 
+/**
+ * Manages search results screen
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
+
 public class SearchResultsController implements Initializable, Screen {
 	
+	/**
+	 * Did user make a search
+	 */
 	public static boolean isSearch;
+	
+	/**
+	 * Name of search album
+	 */
 	@FXML
     private Label AlbumName;
 
-    @FXML
+    /**
+     * Number of photos in search album
+     */
+	@FXML
     private Label PhotoCount;
     
-    @FXML
+    /**
+     * TextField to rename search album
+     */
+	@FXML
     private TextField albumTextField;
     
-    @FXML
+    /**
+     * Button to add search album to main album list
+     */
+	@FXML
     private Button addSearchAlbum;
 
-    @FXML
+    /**
+     * ScrollPane
+     */
+	@FXML
     private ScrollPane scroll;
 
-    @FXML
+    /**
+     * Grid
+     */
+	@FXML
     private GridPane grid;
     
-    @FXML
+    /**
+     * Goes back to previous screen
+     */
+	@FXML
     private MenuItem back;
 
-    @FXML
+    /**
+     * Logs out of application
+     */
+	@FXML
     private MenuItem logout;
 
-    @FXML
+    /**
+     * Quits whole application
+     */
+	@FXML
     private MenuItem quit;
     
-    
+    /**
+     * Current user
+     */
     private User u = Admin.getCurrentUser();
+    
+    /**
+     * Album that contains search hits
+     */
     private Album hits;
+    
+    /**
+     * List of photos
+     */
     private List<Photo> photos;
-	@SuppressWarnings("unused")
-	private StringProperty count;
-	@SuppressWarnings("unused")
-	private int ucol = 0, urow = 1;
-	private PhotoListener myListener;
-	private TestListener testListener;
-	@SuppressWarnings("unused")
-	private Photo selectedPhoto;
-	private boolean photoSelected;
-	private ImageView selectedImage;
 	
+    /**
+     * Count
+     */
+    @SuppressWarnings("unused")
+	private StringProperty count;
+	
+    /**
+     * Coordinates
+     */
+    @SuppressWarnings("unused")
+	private int ucol = 0, urow = 1;
+	
+    /**
+     * Listens for photo interaction
+     */
+    private PhotoListener myListener;
+	
+    /**
+     * Test listener
+     */
+    private TestListener testListener;
+	
+    /**
+     * Selected photo
+     */
+    @SuppressWarnings("unused")
+	private Photo selectedPhoto;
+	
+    /**
+     * Was the photo selected
+     */
+    private boolean photoSelected;
+	
+    /**
+     * Display selected image
+     */
+    private ImageView selectedImage;
+	
+    /**
+     * Opens photo
+     * 
+     * @param photo photo to open
+     * @throws IOException IO error
+     */
     public void openPhoto(Photo photo) throws IOException {
     	if(photoSelected) {
     		selectedImage.setEffect(null);
@@ -96,7 +178,13 @@ public class SearchResultsController implements Initializable, Screen {
 		primaryStage.show();
     }
     
-	public void foo(ImageView a, Photo p) {
+	/**
+	 * Sets photo UI stuff
+	 * 
+	 * @param a displayed photo
+	 * @param p photo
+	 */
+    public void foo(ImageView a, Photo p) {
 	
 		a.setStyle("-fx-opacity: .5;");
 		Lighting lighting = new Lighting();
@@ -179,7 +267,12 @@ public class SearchResultsController implements Initializable, Screen {
     	PhotoCount.setText(Integer.toString(photos.size()) + " photos");
     }
 
-	public void addAlbum(ActionEvent e) {
+	/**
+	 * Adds search album to main album list
+	 * 
+	 * @param e Action Event
+	 */
+    public void addAlbum(ActionEvent e) {
 		if(albumTextField.getText().isBlank()) {
 			Alerts.IllegalField();
 			return;

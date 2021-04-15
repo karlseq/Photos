@@ -22,36 +22,81 @@ import photos.main.Photos;
 import photos.model.Album;
 import photos.model.Photo;
 
+/**
+ * Manages Photo related stuff like captions, tags, and slideshow
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
+
 public class PhotoController implements Initializable, Screen {
 	
-
+	/**
+	 * Displayed image
+	 */
     @FXML
     private ImageView image;
 
+    /**
+     * Button to go right in slideshow
+     */
     @FXML
     private Button rightButton;
 
+    /**
+     * Button to go left in slideshow
+     */
     @FXML
     private Button leftButton;
 
+    /**
+     * Caption of photo
+     */
     @FXML
     private TextField caption;
     
+    /**
+     * Button to open tags of photo
+     */
     @FXML
     private Button tagsButton;
     
+    /**
+     * Current photo
+     */
     public static Photo photo;
+    
+    /**
+     * List of all the photos in the album
+     */
     public static List<Photo> album;
+    
+    /**
+     * Current album
+     */
     public static Album a;
+    
+    /**
+     * Goes back to previous screen
+     */
     @FXML
     private MenuItem goBack;
 
+    /**
+     * Logs out of application
+     */
     @FXML
     private MenuItem logOut;
 
+    /**
+     * Quits whole application
+     */
     @FXML
     private MenuItem quit;
     
+    /**
+     * Instance of tag controller
+     */
     private TagController tagController;
     
 	@Override
@@ -67,6 +112,11 @@ public class PhotoController implements Initializable, Screen {
 	}
 	
 	
+	/**
+	 * Goes right on the photo slideshow
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void goRight(ActionEvent e) {
 		int index = getIndex();
 		if(index < album.size()-1) {
@@ -75,6 +125,11 @@ public class PhotoController implements Initializable, Screen {
 
 	}
 	
+	/**
+	 * Goes left on the photo slideshow
+	 * 
+	 * @param e ActionEvent
+	 */
 	public void goLeft(ActionEvent e) {
 		caption.setText(photo.caption);
 		int index = getIndex();
@@ -83,6 +138,11 @@ public class PhotoController implements Initializable, Screen {
 		}
 	}
 	
+	/**
+	 * Gets index of current photo in album's list of photos
+	 * 
+	 * @return index
+	 */
 	private int getIndex(){
 		for(int i = 0; i < album.size(); i++) {
 			if(album.get(i).getImgSrc() == photo.getImgSrc()) {
@@ -92,6 +152,11 @@ public class PhotoController implements Initializable, Screen {
 		return 0;
 	}
 	
+	/**
+	 * Sets how the photo will look in photo view
+	 * 
+	 * @param index index of current photo in album's list of photos
+	 */
 	private void setPhoto(int index) {
 		photo = album.get(index);
 		caption.setText(photo.caption);
@@ -143,6 +208,12 @@ public class PhotoController implements Initializable, Screen {
 	}
 	*/
 	
+	/**
+	 * Opens tags window
+	 * 
+	 * @param e ActionEvent
+	 * @throws IOException IO error
+	 */
 	public void hitTags(ActionEvent e) throws IOException {
 		/*Stage primaryStage = Main.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/Tags.fxml"));

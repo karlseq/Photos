@@ -25,7 +25,6 @@ public class Tag implements Serializable  {
 	/**
 	 * Creates a Tag object
 	 * 
-	 * @param name tag name
 	 * @param value tag value
 	 */
 	public Tag(String value) {

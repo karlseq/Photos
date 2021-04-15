@@ -24,6 +24,9 @@ public class User implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Blank image
+	 */
 	public static final String blankImage = "./data/default-user-image.jpeg";
 
 	/**
@@ -47,13 +50,14 @@ public class User implements Serializable{
 	public HashSet<String> tagTypes = new HashSet<String>();
 	
 	/**
-	 * HashSet of Photos
+	 * HashMap of Photos
 	 */
 	public HashMap<Photo, Photo> userPhotos;
 	
 	/**
 	 * Creates a user by taking a name for the user
-	 * @param name: name for the user
+	 * 
+	 * @param name name for the user
 	 */
 	public User(String name) {
 		this.username = name;
@@ -72,6 +76,7 @@ public class User implements Serializable{
 	
 	/**
 	 * This is used to get the user's user-name
+	 * 
 	 * @return User's user-name
 	 */
 	public String getUserName() {
@@ -91,7 +96,9 @@ public class User implements Serializable{
 	}
 	
 	/**
-	 * Adds an album to ther user's album list
+	 * Adds an album to their user's album list
+	 * 
+	 * @param album album to add
 	 * @return false if not added, true if added
 	 */
 	public boolean addAlbum(Album album) {
@@ -106,7 +113,8 @@ public class User implements Serializable{
 	
 	/**
 	 * Delete's album from user's album list
-	 * @param album : album you wish to delete
+	 * 
+	 * @param album album you wish to delete
 	 * @return True if deleted, false if not deleted
 	 */
 	public boolean deleteAlbum(Album album) {
@@ -115,8 +123,9 @@ public class User implements Serializable{
 	
 	/**
 	 * Renames the given album
-	 * @param a : album you wish to rename
-	 * @param newName : the new name for your album
+	 * 
+	 * @param a album you wish to rename
+	 * @param newName the new name for your album
 	 * @return null if if not renamed, or the renamed album
 	 */
 	public Album renameAlbum(Album a, String newName) {
@@ -136,6 +145,7 @@ public class User implements Serializable{
 	
 	/**
 	 * Get the user's album list
+	 * 
 	 * @return album list for the user
 	 */
 	public List<Album> getAlbums(){

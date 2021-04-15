@@ -9,8 +9,19 @@ import photos.model.Photo;
 import photos.model.PhotoListener;
 import photos.model.TestListener;
 
+/**
+ * Sets thumbnail of photo
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ *
+ */
+
 public class PhotoThumbnailController {
 	
+	  /**
+	   * Displayed image
+	   */
 	  @FXML
 	  private ImageView image;
 	  @FXML
@@ -26,10 +37,28 @@ public class PhotoThumbnailController {
 	  }
 	  
 	  
+	  /**
+	   * Current photo
+	   */
 	  private Photo tn;
+	  
+	  /**
+	   * Listens for photo interaction
+	   */
 	  private PhotoListener myListener;
+	  
+	  /**
+	   * Test listener
+	   */
 	  private TestListener testListener;
 
+	  /**
+	   * Sets displayed image
+	   * 
+	   * @param tn current photo
+	   * @param myListener listens for photo interaction
+	   * @param testListener test
+	   */
 	  public void setData(Photo tn, PhotoListener myListener, TestListener testListener) {
 		  this.tn = tn;
 		  this.myListener = myListener;
@@ -41,6 +70,11 @@ public class PhotoThumbnailController {
 		  
 	  }
 	  
+	  /**
+	   * Gets displayed image
+	   * 
+	   * @return displayed image
+	   */
 	  public ImageView getImageView() {
 		  return this.image;
 	  }

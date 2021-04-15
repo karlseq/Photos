@@ -6,8 +6,20 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Contains all possible error pop-ups
+ * 
+ * @author Ibrahim Khajanchi
+ * @author Karl Sequeira
+ */
+
 public class Alerts {
 	
+	/**
+	 * Duplicate item
+	 * 
+	 * @param error error message
+	 */
 	public static void duplicateError(String error) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Duplicate " + error);
@@ -15,13 +27,19 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Trying to delete from empty list
+	 */
 	public static void deleteError() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Deletion Error");
-		alert.setHeaderText("Can't delete from empty user list");
+		alert.setHeaderText("Can't delete from empty list");
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Illegal input error
+	 */
 	public static void IllegalField() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Illegal Field Error");
@@ -29,6 +47,9 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * User does not exist
+	 */
 	public static void NonexistentUser() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Invalid Input");
@@ -36,6 +57,11 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * No photos match search criteria
+	 * 
+	 * @param error search error
+	 */
 	public static void noHits(String error) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Invalid Input");
@@ -43,6 +69,11 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Successfully added item
+	 * 
+	 * @param succ success message
+	 */
 	public static void success(String succ) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
@@ -50,6 +81,9 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Album help for user main page
+	 */
 	public static void albumHelp() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Help");
@@ -58,6 +92,13 @@ public class Alerts {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Confirmation pop-up
+	 * 
+	 * @param header confirmation body
+	 * @param title confirmation title
+	 * @return true if user hits ok, false if not
+	 */
 	public static boolean confirmation(String header, String title) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle(title);
