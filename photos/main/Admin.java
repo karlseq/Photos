@@ -36,7 +36,7 @@ public class Admin {
 	/**
 	 * Persistence file
 	 */
-	public static final String storeFile = "users7.dat";
+	public static final String storeFile = "users.dat";
 
 	/**
 	 * Gets list of users

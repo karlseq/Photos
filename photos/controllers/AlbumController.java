@@ -331,7 +331,9 @@ public class AlbumController implements Initializable, Screen{
         });
         
 		grid.getChildren().clear();
-        for(int i = 0; i< this.photos.size(); i++) {
+        ucol = 0;
+        urow = 1;
+		for(int i = 0; i< this.photos.size(); i++) {
         	FXMLLoader fxmlLoader = new FXMLLoader();
     		fxmlLoader.setLocation(getClass().getResource("/photos/view/PhotoThumbnail.fxml"));
     		AnchorPane anchorPane = fxmlLoader.load();
