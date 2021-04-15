@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -97,7 +98,12 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="33.0" prefWidth="1315.0">
                      <children>
-                        <VBox fx:id="bottomVBox" alignment="CENTER" prefHeight="200.0" prefWidth="161.0" />
+                        <StackPane prefHeight="33.0" prefWidth="1296.0">
+                           <children>
+                              <Label text="To open image, left click thumbnail. To delete, copy, move, right click." StackPane.alignment="BOTTOM_RIGHT" />
+                              <VBox fx:id="bottomVBox" alignment="CENTER" prefHeight="200.0" prefWidth="161.0" />
+                           </children>
+                        </StackPane>
                      </children></HBox>
                </children>
             </VBox>

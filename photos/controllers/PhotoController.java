@@ -228,7 +228,7 @@ public class PhotoController implements Initializable, Screen {
 		Stage primaryStage = (Stage) tagsButton.getScene().getWindow();
 		tagController = loader.getController();
 		tagController.start(primaryStage);
-		primaryStage.setTitle(Admin.getCurrentUser().getUserName() + "'s Main Page");
+		primaryStage.setTitle("Tag Page");
 		primaryStage.setScene(new Scene(root, 1315, 750));
 		primaryStage.centerOnScreen();
 		primaryStage.show();

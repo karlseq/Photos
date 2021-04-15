@@ -31,7 +31,7 @@ public class Photos extends Application {
 	public void start(Stage primaryStage)
 	throws Exception {
 
-		File persistence = new File("./dat/users2.dat");
+		File persistence = new File("./dat/users7.dat");
 		if (persistence.length() != 0) {
 			Admin.loadUsers();
 		}

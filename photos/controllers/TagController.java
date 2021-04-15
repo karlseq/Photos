@@ -256,7 +256,7 @@ public class TagController implements Screen {
 	public void goBack(ActionEvent e) throws IOException {
 		Stage primaryStage = Photos.pStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/photos/view/Photo.fxml"));
-		primaryStage.setTitle("Photo View");
+		primaryStage.setTitle(AlbumController.generateDate(photo.date));
 		primaryStage.setScene(new Scene(root, 1315, 810));
 		primaryStage.show();
 	}
